@@ -2,13 +2,13 @@
 
 ## 設定
 
-以下の例を参考に`settings.yml`を作成してください。
+`.env.sample`ファイルおよび以下の例を参考に`.env`を作成してください。
 
-```YAML
-api_url: https://dev.omeka.org/omeka-s-sandbox/api
-output_dir: (出力フォルダへのフルパス。例：/Users/xxx/git/dataset/docs)
-key_identity: (Optional：空のままでもよい)
-key_credential: (Optional：空のままでもよい)
+```
+api_url=https://dev.omeka.org/omeka-s-sandbox/api
+output_dir=<出力フォルダへのパス。例：../docs>
+key_identity=<Optional：空のままでもよい>
+key_credential=<Optional：空のままでもよい>
 ```
 
 `key_identity`と`key_credential`については、以下を参考に取得してください。

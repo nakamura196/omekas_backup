@@ -6,6 +6,7 @@ import requests
 import datetime
 import argparse
 import os
+from tqdm import tqdm
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -15,19 +16,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument("type", help='items, item_sets, ..')
 parser.add_argument("--isInitOutputDir", help='flag to initialize output directory', default=False)
 parser.add_argument("--start", help='page that starts from', default=1)
+parser.add_argument("--debug", action='store_true')
 
 args = parser.parse_args()
 
 target = args.type
 
 isInitOutputDir = args.isInitOutputDir == "True"
-
-'''
-f = open("../settings.yml", "r+")
-settings = yaml.safe_load(f)
-
-output_dir = settings["output_dir"] + "/api/" + target
-'''
 
 output_dir = os.environ['output_dir'] + "/api/" + target
 
@@ -37,11 +32,6 @@ if isInitOutputDir:
 api_url = os.environ['api_url'] # settings["api_url"]
 
 settings = os.environ
-
-# key_identity = os.environ['key_identity']
-# key_credential = os.environ['key_credential']
-
-# print(key_credential)
 
 loop_flg = True
 page = int(args.start)
@@ -54,7 +44,9 @@ while loop_flg:
 
     url = api_url + "/"+target+"?page=" + str(
         page) + query
-    print(datetime.datetime.now(), url)
+
+    if args.debug:
+        print(datetime.datetime.now(), url)
 
     page += 1
 

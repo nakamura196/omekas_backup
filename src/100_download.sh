@@ -1,3 +1,4 @@
+set -e
 python 001_download.py items --isInitOutputDir True
 python 001_download.py item_sets --isInitOutputDir True
 python 001_download.py properties --isInitOutputDir True

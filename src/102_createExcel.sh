@@ -1,3 +1,4 @@
+set -e
 python 002_createExcel.py items
 python 002_createExcel.py item_sets
 python 002_createExcel.py media

@@ -6,7 +6,7 @@ import requests
 import datetime
 import argparse
 import os
-from tqdm import tqdm
+# from tqdm import tqdm
 
 from dotenv import load_dotenv
 load_dotenv()
